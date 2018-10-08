@@ -6,7 +6,7 @@ title: "Compatibility Guide for Kotlin 1.3"
 
 # Compatibility Guide for Kotlin 1.3
 
-One of the fundamental principles in Kotlin Language Design are *Keeping the Language Modern* and *Comfortable Updates*. The former says that constructions which obstruct language evolution should be removed, and the latter says that this removal should be well-communicated beforehand to make code migration as smooth as possible.
+*Keeping the Language Modern* and *Comfortable Updates* are among the fundamental principles in Kotlin Language Design. The former says that constructions which obstruct language evolution should be removed, and the latter says that this removal should be well-communicated beforehand to make code migration as smooth as possible.
 
 While most of the language changes were already announced through other channels, like update changelogs or compiler warnings, this documents summarizes them all, providing a complete reference for migration from Kotlin 1.2 to Kotlin 1.3
 
@@ -16,7 +16,7 @@ In this document we introduce several kinds of compatibility:
 
 - Source: source-incompatible change makes code that used to compile fine (without errors or warnings) to not compile anymore
 - Binary: two binary artifacts are said to be binary-compatible if interchanging them doesn't lead to loading or linkage errors 
-- Behavioural: change is said to be behavioural-incompatible if one and the same program demonstrates different behaviour before and after applying change
+- behavioral: change is said to be behavioral-incompatible if one and the same program demonstrates different behavior before and after applying change
 
 One have to remember that those definitions are given only for pure Kotlin. Compatibility of Kotlin code from the other languages perspective (e.g. from Java) is out of scope of this document.
 
@@ -24,7 +24,7 @@ One have to remember that those definitions are given only for pure Kotlin. Comp
 
 **Ticket**: [KT-19532](https://youtrack.jetbrains.com/issue/KT-19532)
 
-**Incompatible change type**: Behavioural
+**Incompatible change type**: behavioral
 
 **Short summary**: evaluation order with respect to class initialization is changed in 1.3
 
@@ -38,14 +38,14 @@ One have to remember that those definitions are given only for pure Kotlin. Comp
 
 **Ticket**: [KT-25287](https://youtrack.jetbrains.com/issue/KT-25287)
 
-**Incompatible change type**: Behavioural
+**Incompatible change type**: behavioral
 
 **Short summary**: getter-target annotations on annotations constructor parameters will be properly written to classfiles in 1.3
 
 **Deprecation cycle**: 
 
 - <1.3: getter-target annotations on annotation constructor parameters are not applied
-- \>=1.3: getter-target annotations on annotation constructor parameters are properly applied and wrote to the generated code 
+- \>=1.3: getter-target annotations on annotation constructor parameters are properly applied and written to the generated code 
 
 ### Missing errors in class constructor’s `@get:` annotations
 
@@ -72,7 +72,7 @@ One have to remember that those definitions are given only for pure Kotlin. Comp
 **Deprecation cycle**:
 
 - <1.3: compiler could miss such such assertions when type inference was involved, allowing potential `null` propagation during compilation against binaries (see ticket for details).
-- \>=1.3: compiler generates assertions missed assertions. This can case code which was (erroneously) passing `null`s here fail faster.  
+- \>=1.3: compiler generates missed assertions. This can case code which was (erroneously) passing `null`s here fail faster.  
  `-XXLanguage:-StrictJavaNullabilityAssertions` can be used to temporarily return pre-1.3 behavior. Support for this flag will be removed in the next major release.
 
 ### Unsound smartcasts on enum members
@@ -336,7 +336,7 @@ One have to remember that those definitions are given only for pure Kotlin. Comp
 
 **Deprecation cycle**:
 
-- <1.3: behaviour of described calls is different when comparing JS, JRE 6, JRE 7 versus JRE 8+
+- <1.3: behavior of described calls is different when comparing JS, JRE 6, JRE 7 versus JRE 8+
 - \>=1.3: unify behavior across the platforms
 
 ### Rename `buildSequence` and `buildIterator`
